@@ -43,6 +43,7 @@ namespace MegaDesk3._0.Pages.DeskQuotes
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            DeskQuote.TotalCost = DeskQuote.CalculateTotalCost();
             if (!ModelState.IsValid)
             {
                 return Page();

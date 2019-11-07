@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -31,6 +32,8 @@ namespace MegaDesk3._0.Pages.DeskQuotes
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            DeskQuote.QuoteDate = DateTime.Now;
+            DeskQuote.TotalCost = DeskQuote.CalculateTotalCost();
             if (!ModelState.IsValid)
             {
                 return Page();

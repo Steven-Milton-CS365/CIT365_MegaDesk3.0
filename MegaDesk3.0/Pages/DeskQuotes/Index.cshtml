@@ -14,6 +14,18 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].DeskTopMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].RushDays)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Width)
             </th>
             <th>
@@ -22,29 +34,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].NumberOfDrawers)
             </th>
+
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].SurfaceArea)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].Material)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].SurfaceMaterialCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].RushDays)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].RushOrderCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteAmount)
+                @Html.DisplayNameFor(model => model.DeskQuote[0].TotalCost)
             </th>
             <th></th>
         </tr>
@@ -52,6 +44,18 @@
     <tbody>
 @foreach (var item in Model.DeskQuote) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeskTopMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RushDays)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Width)
             </td>
@@ -62,28 +66,7 @@
                 @Html.DisplayFor(modelItem => item.NumberOfDrawers)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SurfaceArea)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Material)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuoteDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SurfaceMaterialCost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RushDays)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RushOrderCost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuoteAmount)
+                @Html.DisplayFor(modelItem => item.TotalCost)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
