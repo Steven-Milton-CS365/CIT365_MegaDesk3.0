@@ -4,14 +4,16 @@ using MegaDesk3._0.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MegaDesk3._0.Migrations
 {
     [DbContext(typeof(MegaDesk3_0Context))]
-    partial class MegaDesk3_0ContextModelSnapshot : ModelSnapshot
+    [Migration("20191107024736_Migration-Change_Model-1")]
+    partial class MigrationChange_Model1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,8 +35,8 @@ namespace MegaDesk3._0.Migrations
                     b.Property<int>("Depth")
                         .HasColumnType("int");
 
-                    b.Property<string>("DeskTopMaterial")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Material")
+                        .HasColumnType("int");
 
                     b.Property<int>("NumberOfDrawers")
                         .HasColumnType("int");
@@ -45,7 +47,16 @@ namespace MegaDesk3._0.Migrations
                     b.Property<int>("RushDays")
                         .HasColumnType("int");
 
-                    b.Property<int>("TotalCost")
+                    b.Property<int>("RushOrderCost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SurfaceAreaCostPerUnit")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SurfaceAreaThreshold")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SurfaceMaterialCost")
                         .HasColumnType("int");
 
                     b.Property<int>("Width")

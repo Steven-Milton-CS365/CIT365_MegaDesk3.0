@@ -13,6 +13,18 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DeskQuote.CustomerName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DeskQuote.CustomerName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DeskQuote.QuoteDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DeskQuote.QuoteDate)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DeskQuote.Width)
         </dt>
         <dd class="col-sm-10">
@@ -31,34 +43,10 @@
             @Html.DisplayFor(model => model.DeskQuote.NumberOfDrawers)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.SurfaceArea)
+            @Html.DisplayNameFor(model => model.DeskQuote.DeskTopMaterial)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.SurfaceArea)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.Material)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.Material)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.QuoteDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.QuoteDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.CustomerName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.CustomerName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.SurfaceMaterialCost)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.SurfaceMaterialCost)
+            @Html.DisplayFor(model => model.DeskQuote.DeskTopMaterial)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DeskQuote.RushDays)
@@ -67,16 +55,16 @@
             @Html.DisplayFor(model => model.DeskQuote.RushDays)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.RushOrderCost)
+            @Html.DisplayNameFor(model => model.DeskQuote.RushDays)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.RushOrderCost)
+            @Html.DisplayFor(model => model.DeskQuote.RushDays)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.QuoteAmount)
+            @Html.DisplayNameFor(model => model.DeskQuote.TotalCost)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.QuoteAmount)
+            @Html.DisplayFor(model => model.DeskQuote.TotalCost)
         </dd>
     </dl>
     
