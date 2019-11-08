@@ -14,10 +14,10 @@
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            Search by CustomerName:
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">Back to full List</a>
+            @*Search by CustomerName:*@
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="customer name"/>
+            <input type="submit" value="Search" class="btn btn-primary" /> @*|*@
+            @*<a asp-page="./Index">Back to full List</a>*@
         </p>
     </div>
 </form>
@@ -63,10 +63,10 @@
                     @Html.DisplayFor(modelItem => item.CustomerName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Width)
+                    @Html.DisplayFor(modelItem => item.Width) inches
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Depth)
+                    @Html.DisplayFor(modelItem => item.Depth) inches
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DeskTopMaterial)
@@ -75,18 +75,18 @@
                     @Html.DisplayFor(modelItem => item.NumberOfDrawers)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.RushDays)
+                    @Html.DisplayFor(modelItem => item.RushDays) days
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TotalCost)
+                    $@Html.DisplayFor(modelItem => item.TotalCost).00
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.QuoteDate)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class=" btn btn-primary"  asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-primary" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }
