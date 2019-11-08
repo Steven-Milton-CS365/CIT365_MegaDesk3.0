@@ -61,8 +61,10 @@ namespace MegaDesk3._0.Pages.ListSearch
                     break;*/
                 /*case "date_desc":
                     deskQuoteQ = deskQuoteQ.OrderByDescending(s => s.QuoteDate);
-                    break;
-                default:*/
+                    break;*/
+                default:
+                    //deskQuoteQ = deskQuoteQ.OrderBy(s => s.CustomerName);
+                    //break;
                     deskQuoteQ = deskQuoteQ.OrderBy(s => s.CustomerName);
                     break;
             }
