@@ -4,7 +4,48 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center jumbotron">
+    <h1 class="display-4">Welcome to <span style="font-weight: 700; font-size: 1em; color: red;"><img src="~/images/asterix-transparent_white_50px.png" />MEGADESK
+</span></a></h1>
+    <h4>For furniture you will be happy with... Every time!</h4>
+</div>
+<div id="imgcarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#imgcarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#imgcarousel" data-slide-to="1"></li>
+        <li data-target="#imgcarousel" data-slide-to="2"></li>
+        <li data-target="#imgcarousel" data-slide-to="3"></li>
+        <li data-target="#imgcarousel" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Carousel Items -->
+    <div class="carousel-inner container">
+        <div class="carousel-item active text-center">
+            <img src="~/images/carousel_00.jpg" alt="Image Number 1" class="img-fluid"/>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="~/images/carousel_01.jpg" alt="Image Number 2" class="img-fluid"/>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="~/images/carousel_02.jpg" alt="Image Number 3" class="img-fluid"/>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="~/images/carousel_03.jpg" alt="Image Number 4" class="img-fluid"/>
+        </div>
+        @*<div class="carousel-item text-center">
+            <img src="~/images/carousel_04.jpg" alt="Image number 5" class="img-fluid"/>
+            <div class="carousel-caption">
+                <h2 style="font-size: 3vw;"> “The most beautiful desk you could evr want” </h2>
+            </div>
+        </div>*@
+    </div>
+
+    <!-- Navigation Controls -->
+    <a class="carousel-control-prev" href="#imgcarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+
+    <a class="carousel-control-next" href="#imgcarousel" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
 </div>
