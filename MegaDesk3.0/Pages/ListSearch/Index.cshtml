@@ -17,12 +17,12 @@
             @*Search by CustomerName:*@
             <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="customer name"/>
             <input type="submit" value="Search" class="btn btn-primary" /> @*|*@
-            @*<a asp-page="./Index">Back to full List</a>*@
+            <a class="btn btn-light"asp-page="./Index">Back to full List</a>
         </p>
     </div>
 </form>
 
-<table class="table">
+<table class="table table-hover table-striped">
     <thead>
         <tr>
             <th>
@@ -94,8 +94,8 @@
 </table>
 
 @{
-    var prevDisabled = !Model.DeskQuote.HasPreviousPage ? "invisible" : "";
-    var nextDisabled = !Model.DeskQuote.HasNextPage ? "invisible" : "";
+    var prevDisabled = !Model.DeskQuote.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.DeskQuote.HasNextPage ? "disabled" : "";
 }
 
 <a asp-page="./Index"

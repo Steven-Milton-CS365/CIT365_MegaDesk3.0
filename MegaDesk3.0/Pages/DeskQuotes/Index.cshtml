@@ -1,29 +1,35 @@
 ﻿@page
-@model MegaDesk3._0.Pages.DeskQuotes.IndexModel
+@model MegaDesk3._0.Pages.ListSearch.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Customer Search</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            @*Search by CustomerName:*@
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="customer name" />
+            <input type="submit" value="Search" class="btn btn-primary" /> @*|*@
+            <a class="btn btn-light" asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table table-hover table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].DeskTopMaterial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].RushDays)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Width)
@@ -32,48 +38,77 @@
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Depth)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].DeskTopMaterial)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].NumberOfDrawers)
             </th>
-
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].RushDays)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].TotalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.DeskQuote) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuoteDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeskTopMaterial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RushDays) days
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Width) in.
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Depth) in.
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfDrawers)
-            </td>
-            <td>
-                $@Html.DisplayFor(modelItem => item.TotalCost).00
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.DeskQuote)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Width) inches
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Depth) inches
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeskTopMaterial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfDrawers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RushDays) days
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.TotalCost).00
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuoteDate)
+                </td>
+                <td>
+                    <a class=" btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-primary" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.DeskQuote.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.DeskQuote.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.DeskQuote.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.DeskQuote.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
