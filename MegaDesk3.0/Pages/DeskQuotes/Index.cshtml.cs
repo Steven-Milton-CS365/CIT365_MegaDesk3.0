@@ -30,8 +30,10 @@ namespace MegaDesk3._0.Pages.DeskQuotes
             string currentFilter, string searchString, int? pageIndex)
         {
             CurrentSort = sortOrder;
-            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" :
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             NameSort = sortOrder == "Name" ? "name_desc" : "Name";
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+
             if (searchString != null)
             {
                 pageIndex = 1;
@@ -56,15 +58,13 @@ namespace MegaDesk3._0.Pages.DeskQuotes
                 case "name_desc":
                     deskQuoteQ = deskQuoteQ.OrderByDescending(s => s.CustomerName);
                     break;
-                /*case "Date":
+                case "Date":
                     deskQuoteQ = deskQuoteQ.OrderBy(s => s.QuoteDate);
-                    break;*/
-                /*case "date_desc":
+                    break;
+                case "date_desc":
                     deskQuoteQ = deskQuoteQ.OrderByDescending(s => s.QuoteDate);
-                    break;*/
-                default:
-                    //deskQuoteQ = deskQuoteQ.OrderBy(s => s.CustomerName);
-                    //break;
+                    break;
+                default: // customer name ascending by default
                     deskQuoteQ = deskQuoteQ.OrderBy(s => s.CustomerName);
                     break;
             }

@@ -32,7 +32,9 @@
                 </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Width)
