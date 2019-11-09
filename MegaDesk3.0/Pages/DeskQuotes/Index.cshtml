@@ -1,5 +1,5 @@
 ﻿@page
-@model MegaDesk3._0.Pages.ListSearch.IndexModel
+@model MegaDesk3._0.Pages.DeskQuotes.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -32,7 +32,8 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+                    asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
                 </a>
             </th>
