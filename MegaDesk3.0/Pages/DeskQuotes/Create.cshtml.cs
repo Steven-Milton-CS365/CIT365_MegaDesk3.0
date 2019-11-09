@@ -37,7 +37,7 @@ namespace MegaDesk3._0.Pages.DeskQuotes
         {
             DeskQuote.QuoteDate = DateTime.Now;
             DeskQuote.DeskTopMaterial = material;
-                DeskQuote.TotalCost = DeskQuote.CalculateTotalCost();
+            DeskQuote.TotalCost = DeskQuote.CalculateTotalCost();
             if (!ModelState.IsValid)
             {
                 return Page();
