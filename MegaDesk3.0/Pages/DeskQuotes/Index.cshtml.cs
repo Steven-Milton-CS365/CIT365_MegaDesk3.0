@@ -31,7 +31,6 @@ namespace MegaDesk3._0.Pages.DeskQuotes
         {
             CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            NameSort = sortOrder == "Name" ? "name_desc" : "Name";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
 
             if (searchString != null)
