@@ -13,6 +13,9 @@ namespace MegaDesk3._0.Pages.DeskQuotes
 {
     public class CreateModel : PageModel
     {
+        [BindProperty]
+        public string material { get; set; }
+
         private readonly MegaDesk3._0.Data.MegaDesk3_0Context _context;
 
         public CreateModel(MegaDesk3._0.Data.MegaDesk3_0Context context)
@@ -33,6 +36,7 @@ namespace MegaDesk3._0.Pages.DeskQuotes
         public async Task<IActionResult> OnPostAsync()
         {
             DeskQuote.QuoteDate = DateTime.Now;
+            DeskQuote.DeskTopMaterial = material;
             DeskQuote.TotalCost = DeskQuote.CalculateTotalCost();
             if (!ModelState.IsValid)
             {
