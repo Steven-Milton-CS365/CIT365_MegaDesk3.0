@@ -28,13 +28,13 @@
             @Html.DisplayNameFor(model => model.DeskQuote.Width)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.Width)
+            @Html.DisplayFor(model => model.DeskQuote.Width) inches
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DeskQuote.Depth)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.Depth)
+            @Html.DisplayFor(model => model.DeskQuote.Depth) inches
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DeskQuote.NumberOfDrawers)
@@ -64,7 +64,7 @@
             @Html.DisplayNameFor(model => model.DeskQuote.TotalCost)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.TotalCost)
+            $@Html.DisplayFor(model => model.DeskQuote.TotalCost).00
         </dd>
     </dl>
 

@@ -32,6 +32,11 @@
                 </a>
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
+                </a>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Width)
             </th>
             <th>
@@ -49,9 +54,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].TotalCost)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -61,6 +63,9 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuoteDate)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Width) inches
@@ -79,9 +84,6 @@
                 </td>
                 <td>
                     $@Html.DisplayFor(modelItem => item.TotalCost).00
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QuoteDate)
                 </td>
                 <td>
                     <a class=" btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>

@@ -61,21 +61,23 @@ html {
     min-height: 100%;
 }
 
-html:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url("../Images/desks1.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
-    z-index: -1;
-}
+    html:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /*background-image: url('../images/desks1.png');*/
+        background-image: url('../images/background_1920_1080.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        z-index: -1;
+    }
 
 body {
   /* Margin bottom by footer height */
@@ -98,19 +100,19 @@ body {
     appearance:none;
 }
 .pine {
-    background-image:url("/Images/pine450x450.jpg");
+    background-image: url('../images/pine450x450.jpg');
 }
 .oak {
-    background-image: url("/Images/oak450x450.jpg");
+    background-image: url('../images/oak450x450.jpg');
 }
 .veneer {
-    background-image: url("/Images/veneer450x450.jpg");
+    background-image: url('../images/veneer450x450.jpg');
 }
 .rosewood {
-    background-image: url("/Images/rosewood450x450.jpg");
+    background-image: url('../images/rosewood450x450.jpg');
 }
 .laminate {
-    background-image: url("/Images/laminate450x450.jpg");
+    background-image: url('../images/laminate450x450.jpg');
 }
 
 .materials input:active +.rbmaterial{opacity: .9;}
@@ -139,5 +141,5 @@ body {
 }
 
 /* Extras */
-a:visited{color:#888}
-a{color:#444;text-decoration:none;}
+/*a:visited{color:#888}
+a{color:#444;text-decoration:none;}*/
