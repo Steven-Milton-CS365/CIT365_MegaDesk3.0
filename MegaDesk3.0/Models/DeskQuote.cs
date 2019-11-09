@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MegaDesk_Asp.Net.Model
 {
@@ -16,6 +17,7 @@ namespace MegaDesk_Asp.Net.Model
         public int Id { get; set; }
 
         [Required]
+        [StringLength(60, MinimumLength = 3)]
         [Display(Name = "Customer")]
         public string CustomerName { get; set; }
 
@@ -28,13 +30,18 @@ namespace MegaDesk_Asp.Net.Model
         public int Depth { get; set; }
 
         [Display(Name = "Material")]
-        public string DeskTopMaterial { get; set; }
+        [BindProperty, Required]
+        public string DeskTopMaterial { get; set; } = "Oak";
 
         [Display(Name = "Drawers")]
+        [Required]
+        [RegularExpression(@"^[0-7]*$")]
+        [Range(0, 7)]
         public int NumberOfDrawers { get; set; }
 
         [Display(Name = "Shipping")]
         [Required]
+        [RegularExpression(@"^[14, 3, 5, 7]*$")]
         public int RushDays { get; set; }
 
         [Display(Name = "Total Cost")]
@@ -42,6 +49,7 @@ namespace MegaDesk_Asp.Net.Model
 
         [DataType(DataType.Date)]
         [Display(Name = "Quote Date")]
+        [Required]
         public DateTime QuoteDate { get; set; }
         #endregion
 

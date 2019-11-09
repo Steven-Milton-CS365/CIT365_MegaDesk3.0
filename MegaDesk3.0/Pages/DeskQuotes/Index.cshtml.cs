@@ -38,7 +38,7 @@ namespace MegaDesk3._0.Pages.DeskQuotes
             }
             else
             {
-                searchString = ""/*currentFilter*/;
+                searchString = currentFilter;
             }
 
             CurrentFilter = searchString;
