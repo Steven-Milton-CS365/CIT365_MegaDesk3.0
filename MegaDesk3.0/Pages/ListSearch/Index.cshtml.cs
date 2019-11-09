@@ -32,6 +32,7 @@ namespace MegaDesk3._0.Pages.ListSearch
             CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" :
             NameSort = sortOrder == "Name" ? "name_desc" : "Name";
+
             if (searchString != null)
             {
                 pageIndex = 1;
@@ -63,13 +64,11 @@ namespace MegaDesk3._0.Pages.ListSearch
                     deskQuoteQ = deskQuoteQ.OrderByDescending(s => s.QuoteDate);
                     break;*/
                 default:
-                    //deskQuoteQ = deskQuoteQ.OrderBy(s => s.CustomerName);
-                    //break;
                     deskQuoteQ = deskQuoteQ.OrderBy(s => s.CustomerName);
                     break;
             }
 
-            int pageSize = 10;
+            int pageSize = 5;
             DeskQuote = await PaginatedList<DeskQuote>.CreateAsync(
                 deskQuoteQ.AsNoTracking(), pageIndex ?? 1, pageSize);
             

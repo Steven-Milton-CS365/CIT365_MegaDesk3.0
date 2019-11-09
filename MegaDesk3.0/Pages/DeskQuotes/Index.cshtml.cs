@@ -19,11 +19,60 @@ namespace MegaDesk3._0.Pages.DeskQuotes
             _context = context;
         }
 
-        public IList<DeskQuote> DeskQuote { get;set; }
+        public string NameSort { get; set; }
+        public string DateSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
-        public async Task OnGetAsync()
+        public PaginatedList<DeskQuote> DeskQuote { get; set; }
+
+        public async Task OnGetAsync(string sortOrder,
+            string currentFilter, string searchString, int? pageIndex)
         {
-            DeskQuote = await _context.DeskQuote.ToListAsync();
+            CurrentSort = sortOrder;
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" :
+            NameSort = sortOrder == "Name" ? "name_desc" : "Name";
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = ""/*currentFilter*/;
+            }
+
+            CurrentFilter = searchString;
+
+            IQueryable<DeskQuote> deskQuoteQ = from s in _context.DeskQuote
+                                               select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                deskQuoteQ = deskQuoteQ.Where(s => s.CustomerName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    deskQuoteQ = deskQuoteQ.OrderByDescending(s => s.CustomerName);
+                    break;
+                /*case "Date":
+                    deskQuoteQ = deskQuoteQ.OrderBy(s => s.QuoteDate);
+                    break;*/
+                /*case "date_desc":
+                    deskQuoteQ = deskQuoteQ.OrderByDescending(s => s.QuoteDate);
+                    break;*/
+                default:
+                    //deskQuoteQ = deskQuoteQ.OrderBy(s => s.CustomerName);
+                    //break;
+                    deskQuoteQ = deskQuoteQ.OrderBy(s => s.CustomerName);
+                    break;
+            }
+
+            int pageSize = 5;
+            DeskQuote = await PaginatedList<DeskQuote>.CreateAsync(
+                deskQuoteQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+
         }
     }
 }

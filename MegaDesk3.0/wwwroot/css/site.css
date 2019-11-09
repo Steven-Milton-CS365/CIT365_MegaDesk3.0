@@ -1,6 +1,9 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+body {
+    color: #fff;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -54,8 +57,24 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+html:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../Images/desks1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    z-index: -1;
 }
 
 body {
@@ -69,3 +88,56 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* Materials Radio Buttons */
+.materials input{
+    margin:0;
+    padding:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+.pine {
+    background-image:url("/Images/pine450x450.jpg");
+}
+.oak {
+    background-image: url("/Images/oak450x450.jpg");
+}
+.veneer {
+    background-image: url("/Images/veneer450x450.jpg");
+}
+.rosewood {
+    background-image: url("/Images/rosewood450x450.jpg");
+}
+.laminate {
+    background-image: url("/Images/laminate450x450.jpg");
+}
+
+.materials input:active +.rbmaterial{opacity: .9;}
+.materials input:checked +.rbmaterial{
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+}
+.rbmaterial{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:70px;height:70px;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    -webkit-filter: brightness(1) grayscale(0) opacity(.7);
+    -moz-filter: brightness(1) grayscale(0) opacity(.7);
+    filter: brightness(1) grayscale(0) opacity(.7);
+}
+.rbmaterial:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}

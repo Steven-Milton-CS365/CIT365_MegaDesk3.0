@@ -78,6 +78,39 @@ namespace MegaDesk3._0.Models
                             DeskTopMaterial = "Laminate",
                             RushDays = 7,
                             TotalCost = 835
+                        },
+                    new DeskQuote
+                        {
+                            Width = 50,
+                            Depth = 40,
+                            QuoteDate = DateTime.Parse("2019-11-9"),
+                            NumberOfDrawers = 7,
+                            CustomerName = "David Haynes",
+                            DeskTopMaterial = "Oak",
+                            RushDays = 3,
+                            TotalCost = 1820
+                        },
+                    new DeskQuote
+                        {
+                            Width = 50,
+                            Depth = 40,
+                            QuoteDate = DateTime.Parse("2019-11-9"),
+                            NumberOfDrawers = 7,
+                            CustomerName = "Katy Taylor",
+                            DeskTopMaterial = "Oak",
+                            RushDays = 3,
+                            TotalCost = 1820
+                        },
+                    new DeskQuote
+                        {
+                            Width = 96,
+                            Depth = 48,
+                            QuoteDate = DateTime.Parse("2019-11-9"),
+                            NumberOfDrawers = 7,
+                            CustomerName = "Kaye Jackson",
+                            DeskTopMaterial = "Veneer",
+                            RushDays = 3,
+                            TotalCost = 4363
                         }
                 );
                 context.SaveChanges();
